@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(135deg, #4facfe, #00f2fe); /* Blue gradient */
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container for game board */
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Game board styling */
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+}
+
+/* Each box */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    background: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 8vmin;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.box:hover {
+    background: #e4f1fe;
+    transform: scale(1.05);
+}
+
+/* X and O colors */
+.box:disabled {
+    color: #ff4081; /* default for O */
+}
+
+.box.X {
+    color: #8e2de2; /* Purple for X */
+}
+.box.O {
+    color: #00bcd4; /* Cyan for O */
+}
+
+/* Reset button */
+#reset-btn, #new-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ff512f, #dd2476); /* Orange to pink */
+    color: #fff;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#reset-btn:hover, #new-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff4081;
+}
+
+/* Winner highlight */
+/* Winner highlight with animated gradient */
+.highlight {
+    background: linear-gradient(135deg, #ff6a00, #ee0979, #ff512f, #dd2476);
+    background-size: 400% 400%;
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 12px;
+    animation: gradientMove 3s ease infinite, glow 0.8s infinite alternate;
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glow effect */
+@keyframes glow {
+    from { box-shadow: 0 0 15px #ff6a00; }
+    to { box-shadow: 0 0 30px #ee0979; }
+}
+
+
+/* Winner message */
+.msg-container {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+}
+
+.hide {
+    display: none;
+}
